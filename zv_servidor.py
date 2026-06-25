@@ -17,7 +17,7 @@ class ZenithServer(BaseHTTPRequestHandler):
     def do_GET(self):
         # La raíz devuelve index.html
         if self.path == "/" or self.path == "":
-            self.servir_archivo("index.html")
+            self.servir_archivo("zv_index.html")
         else:
             nombre = self.path.lstrip("/").split("?")[0]
             self.servir_archivo(nombre)
@@ -49,7 +49,7 @@ HOST   = "localhost"
 PUERTO = 8000
 # ─────────────────────────────────────────────
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     servidor = HTTPServer((HOST, PUERTO), ZenithServer)
     print("=" * 46)
     print("  Zenith — Servidor iniciado correctamente")
